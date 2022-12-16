@@ -39,8 +39,9 @@ pub fn run_file(path: &str) -> Result<(), Box<dyn Error>> {
 }
 
 pub fn run(source: String) {
-    let mut scanner = Scanner::new(source);
-    let tokens = scanner.scan_tokens();
+    let mut scanner = Scanner::new();
+    scanner.scan_tokens(&mut source.chars().peekable());
+    let tokens = scanner.get_tokens();
     for token in tokens {
         println!("Token: {:?}", token);
     }
