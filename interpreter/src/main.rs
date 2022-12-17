@@ -25,8 +25,8 @@ pub fn run_prompt() -> Result<(), Box<dyn Error>> {
             break;
         }
 
-        // TODO: Remove this
-        println!("You wrote: {}", input);
+        // Execute the line of input
+        run(input);
     }
 
     Ok(())
